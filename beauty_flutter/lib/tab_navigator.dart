@@ -1,4 +1,5 @@
 
+import 'package:beauty_flutter/content_pager.dart';
 import 'package:flutter/material.dart';
 
 ///底部导航栏框架搭建
@@ -15,6 +16,7 @@ class _TabNavigatorState extends State<TabNavigator> {
   final _activeColor  = Colors.blue;
 
   int _selectIndex = 0;
+  final ContentPagerController _contentPagerController = ContentPagerController();
   
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,13 @@ class _TabNavigatorState extends State<TabNavigator> {
              )
           ),
         child: Center(
-          child: Text("click $_selectIndex", style: TextStyle(fontSize: 33,color: Colors.red),),
+          // pageView回调，给BottomNavigationBar
+          child: ContentPager(onPageChanged: (int index){
+            setState(() {
+              _selectIndex = index;
+            },);
+
+          }, contentPagerController: _contentPagerController,)
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -44,6 +52,7 @@ class _TabNavigatorState extends State<TabNavigator> {
         _bottomNavigItem("本周", Icons.person, 3),
       ],
         onTap: (index) {
+          _contentPagerController.jumpToPage(index);
           // 修改状态
           setState(() {
             _selectIndex = index;
