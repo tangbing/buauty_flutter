@@ -1,7 +1,10 @@
 
+import 'package:beauty_flutter/card_recommend.dart';
 import 'package:flutter/material.dart';
 import 'package:beauty_flutter/custom_appbar.dart';
 import 'package:flutter/services.dart';
+
+import 'card_share.dart';
 
 class ContentPager extends StatefulWidget {
 
@@ -65,18 +68,18 @@ class _ContentPagerState extends State<ContentPager> {
           onPageChanged: widget.onPageChanged,
           controller: _pageController,
           children: [
-              _wrapItem(0),
-              _wrapItem(1),
-              _wrapItem(2),
-              _wrapItem(3)
+              _wrapItem(CardRecommend()),
+              _wrapItem(CardShare()),
+              _wrapItem(CardRecommend()),
+              _wrapItem(CardRecommend())
           ],
         ))
       ],
     );
   }
 
-  Widget _wrapItem(int index){
-    return Padding(padding: EdgeInsets.all(10), child: Container(color: _colors[index]),);
+  Widget _wrapItem(Widget widget){
+    return Padding(padding: EdgeInsets.all(10), child: widget);
   }
 }
 

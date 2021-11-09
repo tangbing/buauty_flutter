@@ -47,9 +47,9 @@ class _TabNavigatorState extends State<TabNavigator> {
         currentIndex: _selectIndex,
         items: [
         _bottomNavigItem("本周", Icons.folder, 0),
-        _bottomNavigItem("本周", Icons.explore, 1),
-        _bottomNavigItem("本周", Icons.donut_small, 2),
-        _bottomNavigItem("本周", Icons.person, 3),
+        _bottomNavigItem("分享", Icons.explore, 1),
+        _bottomNavigItem("免费", Icons.donut_small, 2),
+        _bottomNavigItem("长安", Icons.person, 3),
       ],
         onTap: (index) {
           _contentPagerController.jumpToPage(index);
