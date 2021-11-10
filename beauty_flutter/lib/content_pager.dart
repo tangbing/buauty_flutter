@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:beauty_flutter/custom_appbar.dart';
 import 'package:flutter/services.dart';
 
+import 'card_free.dart';
 import 'card_share.dart';
 
 class ContentPager extends StatefulWidget {
@@ -70,7 +71,7 @@ class _ContentPagerState extends State<ContentPager> {
           children: [
               _wrapItem(CardRecommend()),
               _wrapItem(CardShare()),
-              _wrapItem(CardRecommend()),
+              _wrapItem(CardFree()),
               _wrapItem(CardRecommend())
           ],
         ))
